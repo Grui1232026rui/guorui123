@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人问卷调查</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .survey-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #4CAF50;
+            background-color: #f9f9f9;
+        }
+        .question p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .options {
+            margin-left: 20px;
+        }
+        .option {
+            margin: 8px 0;
+        }
+        button {
+            display: block;
+            margin: 30px auto;
+            padding: 12px 30px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="survey-container">
+        <h1>用户体验调查问卷</h1>
+        
+        <form id="surveyForm">
+            <!-- 问题1 -->
+            <div class="question">
+                <p>1. 您的年龄段是？</p >
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="age" id="age1" value="18以下">
+                        <label for="age1">18岁以下</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="age" id="age2" value="18-25">
+                        <label for="age2">18-25岁</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="age" id="age3" value="26-35">
+                        <label for="age3">26-35岁</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="age" id="age4" value="36-50">
+                        <label for="age4">36-50岁</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="age" id="age5" value="50以上">
+                        <label for="age5">50岁以上</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 问题2 -->
+            <div class="question">
+                <p>2. 您通常通过什么设备访问网站？（可多选）</p >
+                <div class="options">
+                    <div class="option">
+                        <input type="checkbox" name="device" id="device1" value="手机">
+                        <label for="device1">手机</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" name="device" id="device2" value="电脑">
+                        <label for="device2">电脑</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" name="device" id="device3" value="平板">
+                        <label for="device3">平板</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 问题3 -->
+            <div class="question">
+                <p>3. 您对网站的满意度如何？</p >
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="satisfaction" id="sat1" value="非常满意">
+                        <label for="sat1">非常满意</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="satisfaction" id="sat2" value="满意">
+                        <label for="sat2">满意</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="satisfaction" id="sat3" value="一般">
+                        <label for="sat3">一般</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="satisfaction" id="sat4" value="不满意">
+                        <label for="sat4">不满意</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 问题4 -->
+            <div class="question">
+                <p>4. 您有什么建议？</p >
+                <div class="options">
+                    <textarea name="suggestion" rows="4" cols="50" placeholder="请输入您的建议..."></textarea>
+                </div>
+            </div>
+
+            <button type="button" onclick="submitSurvey()">提交问卷</button>
+        </form>
+    </div>
+
+    <script>
+        function submitSurvey() {
+            // 简单验证是否选择了必填项（这里以第一个问题为例）
+            const ageSelected = document.querySelector('input[name="age"]:checked');
+            if (!ageSelected) {
+                alert('请回答第一个问题');
+                return;
+            }
+
+            // 显示提交成功提示
+            alert('问卷提交成功，感谢您的参与！');
+            // 重置表单（可选）
+            document.getElementById('surveyForm').reset();
+        }
+    </script>
+</body>
+</html>
